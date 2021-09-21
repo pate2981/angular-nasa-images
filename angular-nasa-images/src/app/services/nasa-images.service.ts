@@ -8,6 +8,6 @@ export class NasaImageService {
   constructor(private httpClient: HttpClient) { }
   
   getImages(): Observable<NasaImage[]> {
-    return this.httpClient.get<NasaImage[]>('https://api.nasa.gov/planetary/apod?count=10&api_key=krzk5FkNUeYguGkMc4Fb00rh72MY3O7CEtmwgWUA');
+    return this.httpClient.get<NasaImage[]>('https://api.nasa.gov/planetary/apod?count=30&api_key=krzk5FkNUeYguGkMc4Fb00rh72MY3O7CEtmwgWUA');
   }
 }

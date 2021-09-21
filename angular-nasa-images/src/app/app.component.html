@@ -1,9 +1,12 @@
-<h1>Nasa Images</h1>
+<mat-toolbar>
+
+  <h1 class="header-container">Nasa Images</h1>
+</mat-toolbar>
 
 <div *ngIf="!loading; else spinner">
   <div fxLayout="row wrap" fxLayoutAlign="center"  fxLayoutGap="2em">
     <div *ngFor="let nasaImg of nasaImages">
-      <mat-card class="image-card mat-elevation-z8">
+      <mat-card class="image-card mat-elevation-z8"  *ngIf="nasaImg">
         <mat-card-header>
           <mat-card-title> {{ nasaImg?.title }}</mat-card-title>
           <mat-card-subtitle> {{ nasaImg?.date }}</mat-card-subtitle>
@@ -15,8 +18,14 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
+          
+          <button mat-flat-button [ngClass]="{'liked-card': nasaImg?.isLiked }" (click)="nasaImg.isLiked = !nasaImg.isLiked">
+            <mat-icon>favorite</mat-icon> LIKE
+          </button>
+
+          <button mat-flat-button>
+            <mat-icon>share</mat-icon> SHARE
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -25,5 +34,5 @@
 </div>
 
 <ng-template #spinner>
-  <mat-spinner></mat-spinner>
+  <mat-spinner class="spinner"></mat-spinner>
 </ng-template>

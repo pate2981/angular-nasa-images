@@ -3,4 +3,5 @@ export interface NasaImage {
     title: string;
     explanation: string;
     url: string;
+    isLiked: boolean;
 }
